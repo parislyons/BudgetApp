@@ -4,25 +4,47 @@ bclor = open("budgetclothing.txt", "r")
 bentr = open("budgetentertainment.txt", "r")
 bfoor = open("budgetfood.txt", "r")
 
+clothing, entertainment, food = [], [], [] 
+
+month = int(input("What month do you want to budget for? Please enter one of the following numbers.\n1. January\n2. February\n3. March\n4. April\n5. May\n6. June\n7. July\n8. August\n9. September\n10. October\n11. November\n12. December\n")) - 1
+
+print(month)
+
 to = int(input("What budget do you want to access? Please enter one of the following numbers.\n1. Clothing\n2. Entertainment\n3. Food\n"))
 
+for m in bclor.readlines():
+    lines = m.split('\\n')
+    clothing.append(int())
+
+for m in bentr.readlines():
+    entertainment.append(int())
+
+for m in bfoor.readlines():
+    food.append(int())
+
 if to == 1:
+    print(clothing)
+    tomonths1 = range(0,month)
+    tomonths2 = range(month,11)
+    bclor.seek(month)
     print("Your budget is: " + "£" + bclor.readline())
     move = "\n1. Entertainment\n2. Food\n"
-    bclor.seek(0)
+    bclor.seek(month)
     out = budgets.Clothing("Clothing", int(bclor.read()))
     bclor.close()
 elif to == 2:
+    bentr.seek(month)
     print("Your budget is: " + "£" + bentr.readline())
     move = "\n1. Clothing\n2. Food\n"
-    bentr.seek(0)
+    bentr.seek(month)
     out = budgets.Entertainment("Entertainment", int(bentr.read()))
     tomoney = bentr.readline()
     bentr.close()
 elif to == 3:
+    bfoor.seek(month)
     print("Your budget is: " + "£" + bfoor.readline())
     move = "\n1. Clothing\n2. Entertainment\n"
-    bfoor.seek(0)
+    bfoor.seek(month)
     out = budgets.Food("Food", int(bfoor.read()))
     tomoney = bfoor.readline()
     bfoor.close()
